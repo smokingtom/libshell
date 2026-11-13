@@ -128,5 +128,5 @@ int x_err(Display *display, XErrorEvent *error);
 
 /* synchronization */
 
-void sync(void);
+void sync_ww(void);
 #endif

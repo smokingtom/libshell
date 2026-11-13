@@ -32,6 +32,7 @@
 
 #define I_LOGO "I_LOGO"
 #define I_CAT "I_CAT"
+#define I_WINDOWS "I_WINDOWS"
 
 #define T_STARTBUTTON "T_STARTBUTTON"
 

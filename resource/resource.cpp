@@ -81,7 +81,7 @@ std::string Resource::get_resource(std::string res)
         return paths[1] + "/" + res.substr(res.find("_")+1) + ".ogg";
     } else if(c == 'I')
     {
-        return paths[2] + "/" + res.substr(res.find("_")+1) + ".jpeg";
+        return paths[2] + "/" + res.substr(res.find("_")+1) + ".png";
     } else if (c == 'T')
     {
         return extract_text(paths[3] + "/" + res.substr(res.find("_")+1) + ".txt");

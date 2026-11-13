@@ -27,12 +27,14 @@ mqd_t mq;
 
 void init_queue(const char* name, int create)
 {
-    int flags = create ? (O_WRONLY | O_CREAT) : O_RDONLY;
-    
+    int flags = create
+        ? (O_WRONLY | O_CREAT | O_NONBLOCK)
+        : (O_RDONLY | O_NONBLOCK);
+        
     struct mq_attr attr;
     attr.mq_flags = 0;
     attr.mq_maxmsg = 10;
-    attr.mq_msgsize = (sizeof(uEvent) < 128) ? 128 : sizeof(uEvent);  // ← Add this
+    attr.mq_msgsize = (sizeof(uEvent) < 128) ? 128 : sizeof(uEvent);  
     attr.mq_curmsgs = 0;
     
     mq = mq_open(name, flags, 0644, create ? &attr : NULL);

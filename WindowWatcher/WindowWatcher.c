@@ -52,7 +52,7 @@ Atom NET_WM_NAME;
 Atom NET_CLIENT_LIST;
 Atom NET_ACTIVE_WINDOW;
 
-void sync()
+void sync_ww()
 {
     Atom actual_type;
     int actual_format;
@@ -171,7 +171,7 @@ void x_events()
 
             if (w == root && a == NET_CLIENT_LIST)
             {
-                sync();
+                sync_ww();
                 break;
             }
 
@@ -197,7 +197,7 @@ void x_events()
             case MapNotify:
             case UnmapNotify:
             {
-                sync();
+                sync_ww();
                 break;
             }
 
@@ -466,7 +466,7 @@ void run_ww()
     init_queue("/windowwatcher", 1);
     create_reg();
     setup_x11();
-    sync();
+    sync_ww();
     x_events();
     x_cleanup();
 }
